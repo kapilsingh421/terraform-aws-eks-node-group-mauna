@@ -84,7 +84,7 @@ variable "ami_type" {
     Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
     Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, and `AL2_ARM_64`.
     EOT
-  default     = "AL2_x86_64"
+  default     = "AL2_x86_64_GPU"
   validation {
     condition = (
       contains(["AL2_x86_64", "AL2_x86_64_GPU", "AL2_ARM_64"], var.ami_type)
@@ -161,7 +161,7 @@ variable "kubelet_additional_options" {
 variable "ami_image_id" {
   type        = string
   description = "AMI to use. Ignored of `launch_template_id` is supplied."
-  default     = null
+  default     = "ami-0f0b5d169137f6bc4"
 }
 
 variable "ami_release_version" {
