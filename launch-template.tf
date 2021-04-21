@@ -63,6 +63,7 @@ resource "aws_launch_template" "default" {
     ebs {
       volume_size = var.disk_size
       volume_type = "gp3"
+      iops        = "3000"
       kms_key_id  = var.launch_template_disk_encryption_enabled && length(var.launch_template_disk_encryption_kms_key_id) > 0 ? var.launch_template_disk_encryption_kms_key_id : null
       encrypted   = var.launch_template_disk_encryption_enabled
     }
